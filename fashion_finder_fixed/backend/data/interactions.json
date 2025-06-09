@@ -1,0 +1,17 @@
+[
+    {
+        "user_id": "user123",
+        "item_id": "1541",
+        "type": "like"
+    },
+    {
+        "user_id": "user_likes_only",
+        "item_id": "1541",
+        "type": "like"
+    },
+    {
+        "user_id": "user_likes_only",
+        "item_id": "1548",
+        "type": "like"
+    }
+]

@@ -1,0 +1,38 @@
+[
+    {
+        "user_id": "user123",
+        "preferences": {
+            "gender_preference": "Women",
+            "master_category_preference": [
+                "Apparel",
+                "Footwear"
+            ],
+            "subCategory_Apparel": [
+                "Topwear",
+                "Dresses"
+            ],
+            "articleType_Topwear": [
+                "Tshirts"
+            ],
+            "subCategory_Footwear": [
+                "Shoes"
+            ],
+            "articleType_Shoes": [
+                "Casual Shoes"
+            ],
+            "colour_preference": [
+                "Black",
+                "Blue",
+                "White"
+            ],
+            "season_preference": [
+                "Summer",
+                "Fall"
+            ],
+            "usage_preference": [
+                "Casual",
+                "Workwear"
+            ]
+        }
+    }
+]
