@@ -85,7 +85,7 @@ fashion_finder/
 3. Install backend dependencies:
    ```
    pip install -r requirements.txt
-   ```
+> **Note**: All Python dependencies are listed in `requirements.txt`. The obsolete `requirements_python313.txt` file was removed.
 
 ### Running the Application
 

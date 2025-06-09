@@ -39,8 +39,9 @@ If you prefer to install manually, follow these steps:
 
 2. **Install Python Dependencies**
    ```
-   pip install flask flask-cors flask-session pandas scikit-learn
+   pip install -r requirements.txt
    ```
+   > **Note**: The old `requirements_python313.txt` file is no longer used.
 
 3. **Create Required Directories**
    ```
