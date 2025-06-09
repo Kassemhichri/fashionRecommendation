@@ -1,4 +1,4 @@
-import { Express } from "express";
+import express from "express";
 import { createServer } from "http";
 import { storage } from "./storage.js";
 import path from "path";
@@ -23,8 +23,9 @@ const isAuthenticated = (req, res, next) => {
 };
 
 export async function registerRoutes(app) {
-  // Initialize and start Flask server
-  const flaskServer = startFlaskServer();
+  // Optionally start the Flask server if available
+  const SKIP_FLASK = process.env.SKIP_FLASK === 'true';
+  const flaskServer = SKIP_FLASK ? null : startFlaskServer();
   
   // API endpoint for user interactions (likes, dislikes, views)
   app.post('/api/interactions', async (req, res) => {
@@ -458,6 +459,9 @@ export async function registerRoutes(app) {
   // API endpoint to get quiz questions
   app.get('/api/quiz', (req, res) => {
     try {
+      if (SKIP_FLASK) {
+        return res.status(501).json({ message: 'Quiz service disabled' });
+      }
       // Forward request to Flask server
       res.redirect('http://localhost:5001/api/quiz');
     } catch (error) {
@@ -472,6 +476,9 @@ export async function registerRoutes(app) {
   // API endpoint to submit quiz answers and get recommendations
   app.post('/api/quiz', (req, res) => {
     try {
+      if (SKIP_FLASK) {
+        return res.status(501).json({ message: 'Quiz service disabled' });
+      }
       // Forward request to Flask server
       // This is a simplification - in a real app we'd use a proper proxy
       const { answers } = req.body;
@@ -496,6 +503,9 @@ export async function registerRoutes(app) {
   // API endpoint for chatbot
   app.post('/api/chat', (req, res) => {
     try {
+      if (SKIP_FLASK) {
+        return res.status(501).json({ message: 'Chat service disabled' });
+      }
       // Forward request to Flask server
       res.redirect(307, 'http://localhost:5001/api/chat');
     } catch (error) {
