@@ -168,6 +168,4 @@ The chatbot uses a pattern-matching approach with a knowledge base of fashion in
    - Stateless design for easy scaling
    - Focused on fashion-related queries
 
-## Development Notes
 
-This project was converted from TypeScript to JavaScript for easier maintenance and development. The AI recommendation system was enhanced with a more accurate model, and a chatbot feature was added to improve user experience.
