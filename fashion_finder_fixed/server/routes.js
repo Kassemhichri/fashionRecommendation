@@ -1,4 +1,4 @@
-import { Express } from "express";
+import express from "express";
 import { createServer } from "http";
 import { storage } from "./storage.js";
 import path from "path";
