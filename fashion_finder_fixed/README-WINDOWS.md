@@ -1,118 +1,45 @@
-# FashionFinder - Windows Installation Guide
+# FashionFinder - Windows Guide
 
-This guide will help you set up and run the FashionFinder application on a Windows system.
+This guide explains how to set up and run the FashionFinder project on Windows.
 
 ## Prerequisites
 
-Before you begin, ensure you have the following software installed:
+- **Node.js** v16 or higher
+- **Python** 3.8 or higher
+- Git (optional)
 
-- **Node.js** (v16.0 or higher) - [Download](https://nodejs.org/)
-- **Python** (v3.8 or higher) - [Download](https://www.python.org/)
-  - Ensure you check "Add Python to PATH" during installation
-- **Git** (optional) - [Download](https://git-scm.com/download/win)
+Make sure both Node and Python are added to your `PATH`.
 
 ## Installation
 
-### Option 1: Simple Installation (Recommended)
-
-1. **Run the Windows Installation Script**
-   - Double-click on `INSTALL-WINDOWS.bat`
-   - This script will:
-     - Check for required dependencies
-     - Install Node.js packages
-     - Install Python packages
-     - Set up necessary directories
-     - Create Windows compatibility files
-
-2. **Follow the On-Screen Instructions**
-   - The script will guide you through the rest of the setup process
-   - You'll have options to prepare product images and start the application
-
-### Option 2: Manual Installation
-
-If you prefer to install manually, follow these steps:
-
-1. **Install Node.js Dependencies**
+1. Open a terminal and navigate to the `fashion_finder_fixed` directory.
+2. Install JavaScript dependencies:
    ```
    npm install
    ```
-
-2. **Install Python Dependencies**
+3. Install Python dependencies:
    ```
-   pip install flask flask-cors flask-session pandas scikit-learn
+   pip install -r requirements.txt
    ```
-
-3. **Create Required Directories**
+4. (Optional) Prepare product images by placing them in `source-images` and running:
    ```
-   mkdir attached_assets
-   mkdir attached_assets\images
-   mkdir source-images
+   python process_images.py
    ```
-
-## Adding Product Images
-
-1. **Place your product images in the `source-images` folder**
-
-2. **Process the images**
-   - Double-click on `START-IMAGES-WINDOWS.bat`
-   - This script will help you rename and move the images to the correct location
-   - Follow the on-screen instructions
-
-3. **Image Naming Convention**
-   - Each image must be named with its corresponding product ID from styles.csv
-   - For example, a product with ID "15970" should have an image named "15970.jpg"
 
 ## Running the Application
 
-1. **Start the Application**
-   - Double-click on `START-WINDOWS.bat`
-   - This script will:
-     - Create a Windows-compatible server configuration
-     - Start both the Express server and Flask server
-     - Launch the application
+Start the development server using the Windows-specific script:
+```bash
+npm run dev:windows
+```
+Add `SKIP_FLASK=true` before the command if you want to skip starting the Flask service.
+If `DATABASE_URL` is unset the app falls back to a temporary in-memory database.
 
-2. **Access the Application**
-   - Open your web browser and go to: `http://localhost:5000`
+Once the server is running, open `http://localhost:5000` in your browser.
 
 ## Troubleshooting
 
-### Common Issues:
+- **Port Already in Use**: Stop the process using port 5000 or choose a different port in the scripts.
+- **Flask Dependencies Missing**: Set `SKIP_FLASK=true` to disable the Python service.
 
-#### Node.js or npm Not Found
-- Make sure Node.js is properly installed
-- Verify that Node.js and npm are added to your PATH
-- Try reinstalling Node.js
-
-#### Python or pip Not Found
-- Make sure Python is properly installed
-- Verify that Python and pip are added to your PATH
-- Try reinstalling Python with the "Add Python to PATH" option checked
-
-#### Socket Binding Error
-- If you see `Error: listen ENOTSUP: operation not supported on socket 0.0.0.0:5000`
-- Use the provided Windows scripts which already handle this issue
-
-#### Port Already in Use
-- If you see `Error: listen EADDRINUSE: address already in use :::5000`
-- Find and stop the process using port 5000 or 8000
-- Run as administrator: `netstat -ano | findstr :5000` to find the PID
-- Then: `taskkill /PID <PID> /F` to kill the process
-
-## Files Included in the Windows Package
-
-- `INSTALL-WINDOWS.bat` - Main installation script
-- `START-WINDOWS.bat` - Script to start the application
-- `START-IMAGES-WINDOWS.bat` - Script to process product images
-- `README-WINDOWS.md` - This documentation file
-
-## Additional Information
-
-- The application uses React for the frontend and Express.js/Flask for the backend
-- Product data is loaded from styles.csv in the attached_assets folder
-- MongoDB database is used for user data, interactions, and quiz responses
-
-## Support
-
-If you encounter any issues or have questions, please refer to the original project documentation or contact the support team.
-
-Thank you for using FashionFinder!
+Enjoy using FashionFinder on Windows!

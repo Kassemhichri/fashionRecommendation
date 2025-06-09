@@ -1,6 +1,7 @@
 import { pgTable, text, serial, integer, boolean, timestamp, primaryKey, decimal } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
-import { z } from "zod";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const { z } = require("zod");
 
 // User model
 export const users = pgTable("users", {
@@ -11,10 +12,10 @@ export const users = pgTable("users", {
   registrationDate: timestamp("registration_date").defaultNow()
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  email: true,
-  password: true,
+export const insertUserSchema = z.object({
+  username: z.string(),
+  email: z.string(),
+  password: z.string(),
 });
 
 // Quiz responses model
@@ -26,10 +27,10 @@ export const quizResponses = pgTable("quiz_responses", {
   createdAt: timestamp("created_at").defaultNow()
 });
 
-export const insertQuizResponseSchema = createInsertSchema(quizResponses).pick({
-  userId: true,
-  questionId: true,
-  response: true,
+export const insertQuizResponseSchema = z.object({
+  userId: z.number(),
+  questionId: z.string(),
+  response: z.string(),
 });
 
 // User interactions model
@@ -41,10 +42,10 @@ export const interactions = pgTable("interactions", {
   createdAt: timestamp("created_at").defaultNow()
 });
 
-export const insertInteractionSchema = createInsertSchema(interactions).pick({
-  userId: true,
-  productId: true,
-  interactionType: true,
+export const insertInteractionSchema = z.object({
+  userId: z.number(),
+  productId: z.string(),
+  interactionType: z.string(),
 });
 
 // Product reviews model
@@ -59,12 +60,12 @@ export const reviews = pgTable("reviews", {
   updatedAt: timestamp("updated_at").defaultNow()
 });
 
-export const insertReviewSchema = createInsertSchema(reviews).pick({
-  userId: true,
-  productId: true,
-  rating: true,
-  reviewText: true,
-  title: true
+export const insertReviewSchema = z.object({
+  userId: z.number(),
+  productId: z.string(),
+  rating: z.number(),
+  reviewText: z.string().optional(),
+  title: z.string().optional(),
 });
 
 // Product ratings summary model (aggregated data for quick access)
@@ -80,13 +81,13 @@ export const productRatings = pgTable("product_ratings", {
   updatedAt: timestamp("updated_at").defaultNow()
 });
 
-export const insertProductRatingSchema = createInsertSchema(productRatings).pick({
-  productId: true,
-  averageRating: true,
-  totalRatings: true,
-  fiveStarCount: true,
-  fourStarCount: true,
-  threeStarCount: true,
-  twoStarCount: true,
-  oneStarCount: true
+export const insertProductRatingSchema = z.object({
+  productId: z.string(),
+  averageRating: z.string(),
+  totalRatings: z.number(),
+  fiveStarCount: z.number(),
+  fourStarCount: z.number(),
+  threeStarCount: z.number(),
+  twoStarCount: z.number(),
+  oneStarCount: z.number(),
 });

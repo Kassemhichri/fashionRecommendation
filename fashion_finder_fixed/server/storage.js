@@ -326,4 +326,71 @@ export class DatabaseStorage {
   }
 }
 
-export const storage = new DatabaseStorage();
+// Simplified in-memory implementation used when no database is configured
+export class MemoryStorage {
+  constructor() {
+    this.users = [];
+    this.interactions = [];
+    this.nextUserId = 1;
+    this.nextInteractionId = 1;
+  }
+
+  async getUser(id) {
+    return this.users.find(u => u.id === id);
+  }
+
+  async getUserByUsername(username) {
+    return this.users.find(u => u.username === username);
+  }
+
+  async getUserByEmail(email) {
+    return this.users.find(u => u.email === email);
+  }
+
+  async createUser(insertUser) {
+    const user = { id: this.nextUserId++, ...insertUser };
+    this.users.push(user);
+    return user;
+  }
+
+  async createInteraction(interaction) {
+    const existing = await this.getInteractionByUserAndProduct(
+      interaction.userId,
+      interaction.productId,
+      interaction.interactionType
+    );
+    if (existing) return existing;
+    const newInter = { id: this.nextInteractionId++, ...interaction };
+    this.interactions.push(newInter);
+    return newInter;
+  }
+
+  async getInteractionsByUserAndType(userId, type) {
+    return this.interactions.filter(
+      i => i.userId === userId && i.interactionType === type
+    );
+  }
+
+  async getInteractionByUserAndProduct(userId, productId, interactionType) {
+    return this.interactions.find(
+      i =>
+        i.userId === userId &&
+        i.productId === productId &&
+        i.interactionType === interactionType
+    );
+  }
+
+  async deleteInteraction(userId, productId, interactionType) {
+    this.interactions = this.interactions.filter(
+      i =>
+        !(
+          i.userId === userId &&
+          i.productId === productId &&
+          i.interactionType === interactionType
+        )
+    );
+    return true;
+  }
+}
+
+export const storage = db ? new DatabaseStorage() : new MemoryStorage();
