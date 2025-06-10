@@ -73,23 +73,21 @@ fashion_finder/
 3. Install backend dependencies:
    ```
    pip install -r requirements.txt
-<<<<<< if750l-codex/rename-files.ts-to-.js
-   ```
-   > **Note**: All Python dependencies are listed in `requirements.txt`. Python 3.13 is currently not supported; use Python 3.11 or earlier.
+The backend is implemented with **Flask**. Use Python 3.10 or 3.11.
 
-### Running the Application
-
-1. Set the `DATABASE_URL` environment variable to point at your PostgreSQL database.
-2. Start the development server:
+1. Install the Python dependencies:
+   ```bash
+   pip install -r requirements.txt
    ```
+2. Start the Flask API server:
+   ```bash
+   python server/app.py
+   ```
+   The API will run on [http://localhost:5001](http://localhost:5001).
+3. In a separate terminal, start the React development server:
+   ```bash
    npm run dev
-   ```
-3. Build the server for production:
-   ```
-   npm run build:server
-   ```
-4. Run the compiled server:
-   ```
+   This serves the frontend on [http://localhost:5173](http://localhost:5173).
    npm start
    ```
    The server listens on [http://localhost:5000](http://localhost:5000).
