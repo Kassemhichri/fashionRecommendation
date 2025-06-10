@@ -57,12 +57,12 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { createServer } from "http";
-import { storage } from "./storage";
+import { storage } from "./storage.js";
 import path from "path";
 import fs from "fs";
 import { spawn } from "child_process";
-import { getMergedProducts } from "./utils/csvParser";
-import { insertInteractionSchema, insertReviewSchema } from "@shared/schema";
+import { getMergedProducts } from "./utils/csvParser.js";
+import { insertInteractionSchema, insertReviewSchema } from "../shared/schema.js";
 // We'll implement the merged products functionality directly in routes.ts for now
 // to avoid ES modules/CommonJS issues
 // Authentication middleware
