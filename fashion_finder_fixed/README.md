@@ -60,7 +60,7 @@ fashion_finder/
 ### Prerequisites
 
 - Node.js (v14 or higher)
-- Python (v3.8 or higher)
+ - Python 3.10 or 3.11
 - pip (Python package manager)
 
 ### Installation
@@ -73,7 +73,7 @@ fashion_finder/
 3. Install backend dependencies:
    ```
    pip install -r requirements.txt
-> **Note**: All Python dependencies are listed in `requirements.txt`. The obsolete `requirements_python313.txt` file was removed.
+> **Note**: All Python dependencies are listed in `requirements.txt`. Python 3.13 is currently not supported; use Python 3.11 or earlier.
 
 ### Running the Application
 
