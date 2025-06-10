@@ -4,10 +4,12 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development tsx server/index.ts",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+    "dev": "cross-env NODE_ENV=development node node_modules/tsx/dist/cli.mjs server/index.ts",
+    "dev:windows": "cross-env NODE_ENV=development node node_modules/tsx/dist/cli.mjs server/windows-index.ts",
+    "build": "node node_modules/esbuild/bin/esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
     "build:server": "tsc -p tsconfig.build.json",
-    "start": "NODE_ENV=production node dist/index.js",
+    "start": "cross-env NODE_ENV=production node dist/server/index.js",
+    "start:windows": "cross-env NODE_ENV=production node dist/server/windows-index.js",
     "check": "tsc",
     "db:push": "drizzle-kit push"
   },
@@ -94,6 +96,7 @@
     "@types/ws": "^8.5.13",
     "@vitejs/plugin-react": "^4.3.2",
     "autoprefixer": "^10.4.20",
+    "cross-env": "^7.0.3",
     "drizzle-kit": "^0.30.4",
     "esbuild": "^0.25.0",
     "postcss": "^8.4.47",
