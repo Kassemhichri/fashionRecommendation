@@ -73,19 +73,21 @@ fashion_finder/
 3. Install backend dependencies:
    ```
    pip install -r requirements.txt
-> **Note**: All Python dependencies are listed in `requirements.txt`. Python 3.13 is currently not supported; use Python 3.11 or earlier.
+   ```
+   > **Note**: All Python dependencies are listed in `requirements.txt`. Python 3.13 is currently not supported; use Python 3.11 or earlier.
 
 ### Running the Application
 
-1. Start the development server:
+1. Set the `DATABASE_URL` environment variable to point at your PostgreSQL database.
+2. Start the development server:
    ```
    npm run dev
    ```
-2. Build the server for production:
+3. Build the server for production:
    ```
    npm run build:server
    ```
-3. Run the compiled server:
+4. Run the compiled server:
    ```
    npm start
    ```
