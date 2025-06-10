@@ -2,6 +2,8 @@
 
 Fashion Finder is a web application that helps users discover clothing items that match their style preferences through an interactive quiz, AI-powered recommendations, and a simple chatbot assistant.
 
+The source code is written in TypeScript but compiles to JavaScript in the `dist` folder for production use.
+
 ## Features
 
 ### Style Quiz
@@ -37,34 +39,20 @@ Users can browse through a catalog of fashion items with:
 
 ## Technology Stack
 
-- **Frontend**: HTML, CSS, JavaScript with modern frameworks
-- **Backend**: Python Flask server with RESTful API endpoints
-- **AI Model**: Custom recommendation system using embeddings and similarity matching
-- **Database**: Local storage with JSON files for product and user data
+- **Frontend**: React + Vite
+- **Backend**: Express.js server written in TypeScript
+- **AI Model**: Custom recommendation system using embeddings
+- **Database**: Local storage with JSON files
 
 ## Project Structure
 
 ```
 fashion_finder/
-├── client/              # Frontend code
-│   ├── assets/          # Static assets (images, icons)
-│   ├── components/      # UI components
-│   ├── pages/           # Application pages
-│   └── styles/          # CSS styles
-├── server/              # Backend code
-│   ├── api/             # API endpoints
-│   │   ├── chatbot.py   # Chatbot API
-│   │   ├── enhanced_recommendations.py # AI recommendation API
-│   │   └── quiz.py      # Quiz API
-│   ├── models/          # Data models
-│   │   └── quiz.py      # Improved quiz model
-│   ├── services/        # Business logic services
-│   │   ├── chatbot_service.py # Chatbot logic
-│   │   ├── enhanced_ai_recommendation_service.py # New AI recommendation system
-│   │   └── quiz_service.py # Quiz service
-│   ├── static/          # Static files served by the server
-│   └── utils/           # Utility functions
-└── shared/              # Shared code between client and server
+├── client/      # React frontend
+├── server/      # Express API
+├── shared/      # Code shared between client and server
+├── backend/     # Static JSON data
+└── dist/        # Compiled JavaScript
 ```
 
 ## Getting Started
@@ -72,7 +60,7 @@ fashion_finder/
 ### Prerequisites
 
 - Node.js (v14 or higher)
-- Python (v3.8 or higher)
+ - Python 3.10 or 3.11
 - pip (Python package manager)
 
 ### Installation
@@ -85,19 +73,33 @@ fashion_finder/
 3. Install backend dependencies:
    ```
    pip install -r requirements.txt
-> **Note**: All Python dependencies are listed in `requirements.txt`. The obsolete `requirements_python313.txt` file was removed.
+> **Note**: All Python dependencies are listed in `requirements.txt`. Python 3.13 is currently not supported; use Python 3.11 or earlier.
 
 ### Running the Application
 
-1. Start the backend server:
-   ```
-   npm run server
-   ```
-2. Start the frontend development server:
+1. Start the development server:
    ```
    npm run dev
    ```
-3. Open your browser and navigate to `http://localhost:3000`
+2. Build the server for production:
+   ```
+   npm run build:server
+   ```
+3. Run the compiled server:
+   ```
+   npm start
+   ```
+
+### Windows Notes
+
+The development and production scripts use the `cross-env` utility to set
+`NODE_ENV` in a way that works on both Windows and UNIX-based systems. If you are
+running Windows, use the same commands as above. You can also run a Windows-specific
+entry point with:
+
+```bash
+npm run dev:windows
+```
 
 ## Technical Details
 
