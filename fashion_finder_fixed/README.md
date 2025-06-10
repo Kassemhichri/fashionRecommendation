@@ -73,6 +73,7 @@ fashion_finder/
 3. Install backend dependencies:
    ```
    pip install -r requirements.txt
+<<<<<< if750l-codex/rename-files.ts-to-.js
    ```
    > **Note**: All Python dependencies are listed in `requirements.txt`. Python 3.13 is currently not supported; use Python 3.11 or earlier.
 
@@ -97,6 +98,30 @@ fashion_finder/
    ```
    npm run start:windows
    ```
+=======
+> **Note**: All Python dependencies are listed in `requirements.txt`. Python 3.13 is currently not supported; use Python 3.11 or earlier.
+
+### Running the Application
+
+1. Start the development server:
+   ```
+   npm run dev
+   ```
+2. Build the server for production:
+   ```
+   npm run build:server
+   ```
+3. Run the compiled server:
+   ```
+   npm start
+   ```
+   The server listens on [http://localhost:5000](http://localhost:5000).
+
+   On Windows you can use a dedicated entry point:
+   ```
+   npm run start:windows
+   ```
+>>>>>> main
 
 ### Windows Notes
 
