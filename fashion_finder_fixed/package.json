@@ -10,6 +10,7 @@
     "build:server": "tsc -p tsconfig.build.json",
     "start": "cross-env NODE_ENV=production node dist/server/index.js",
     "start:windows": "cross-env NODE_ENV=production node dist/server/windows-index.js",
+    "start:flask": "python server/app.py",
     "check": "tsc",
     "db:push": "drizzle-kit push"
   },
