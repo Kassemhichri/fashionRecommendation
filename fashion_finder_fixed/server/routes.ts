@@ -1,11 +1,11 @@
 import type { Express, Request as ExpressRequest, Response } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import { storage } from "./storage.js";
 import path from "path";
 import fs from "fs";
 import { spawn } from "child_process";
-import { getMergedProducts } from "./utils/csvParser";
-import { insertInteractionSchema, insertReviewSchema } from "@shared/schema";
+import { getMergedProducts } from "./utils/csvParser.js";
+import { insertInteractionSchema, insertReviewSchema } from "../shared/schema.js";
 
 // Extend the Express Request interface to include userId
 declare global {
