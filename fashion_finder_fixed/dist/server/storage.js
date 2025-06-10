@@ -45,8 +45,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { users, interactions, reviews, productRatings } from "@shared/schema";
-import { db } from "./db";
+import { users, interactions, reviews, productRatings } from "../shared/schema.js";
+import { db } from "./db.js";
 import { eq, and } from "drizzle-orm";
 // Database implementation of the storage interface
 var DatabaseStorage = /** @class */ (function () {

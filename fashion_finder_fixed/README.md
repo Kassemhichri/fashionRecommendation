@@ -89,16 +89,23 @@ fashion_finder/
    ```
    npm start
    ```
+   The server listens on [http://localhost:5000](http://localhost:5000).
+
+   On Windows you can use a dedicated entry point:
+   ```
+   npm run start:windows
+   ```
 
 ### Windows Notes
 
 The development and production scripts use the `cross-env` utility to set
 `NODE_ENV` in a way that works on both Windows and UNIX-based systems. If you are
-running Windows, use the same commands as above. You can also run a Windows-specific
-entry point with:
+running Windows, you can use the same commands as above. There are also Windows-specific
+entry points:
 
 ```bash
 npm run dev:windows
+npm run start:windows
 ```
 
 ## Technical Details
