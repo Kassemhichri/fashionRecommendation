@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["server/**/*", "shared/**/*", "shared/types/**/*.d.ts"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "noEmit": false,
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "declaration": false,
+    "allowImportingTsExtensions": false
+  }
+}
