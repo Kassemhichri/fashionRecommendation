@@ -68,6 +68,9 @@ fashion_finder/
    ```
    npm install
    ```
+   This downloads platform-specific binaries (like Rollup's native module).
+   If you copy `node_modules` between systems, run `npm install` again so the
+   correct binaries are installed.
 3. Install backend dependencies:
    ```
    pip install -r requirements.txt
