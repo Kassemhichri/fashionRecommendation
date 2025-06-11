@@ -2,6 +2,8 @@
 
 Fashion Finder is a web application that helps users discover clothing items that match their style preferences through an interactive quiz, AI-powered recommendations, and a simple chatbot assistant.
 
+The application uses React for the frontend and Flask for the backend. All code is plain JavaScript and Python so no TypeScript tooling is required.
+
 ## Features
 
 ### Style Quiz
@@ -37,34 +39,18 @@ Users can browse through a catalog of fashion items with:
 
 ## Technology Stack
 
-- **Frontend**: HTML, CSS, JavaScript with modern frameworks
-- **Backend**: Python Flask server with RESTful API endpoints
-- **AI Model**: Custom recommendation system using embeddings and similarity matching
-- **Database**: Local storage with JSON files for product and user data
+- **Frontend**: React + Vite
+- **Backend**: Flask API (Python)
+- **AI Model**: Custom recommendation system using embeddings
+- **Database**: Local JSON files
 
 ## Project Structure
 
 ```
 fashion_finder/
-├── client/              # Frontend code
-│   ├── assets/          # Static assets (images, icons)
-│   ├── components/      # UI components
-│   ├── pages/           # Application pages
-│   └── styles/          # CSS styles
-├── server/              # Backend code
-│   ├── api/             # API endpoints
-│   │   ├── chatbot.py   # Chatbot API
-│   │   ├── enhanced_recommendations.py # AI recommendation API
-│   │   └── quiz.py      # Quiz API
-│   ├── models/          # Data models
-│   │   └── quiz.py      # Improved quiz model
-│   ├── services/        # Business logic services
-│   │   ├── chatbot_service.py # Chatbot logic
-│   │   ├── enhanced_ai_recommendation_service.py # New AI recommendation system
-│   │   └── quiz_service.py # Quiz service
-│   ├── static/          # Static files served by the server
-│   └── utils/           # Utility functions
-└── shared/              # Shared code between client and server
+├── client/      # React frontend
+├── server/      # Flask API
+├── backend/     # Dataset and recommendation code
 ```
 
 ## Getting Started
@@ -72,7 +58,7 @@ fashion_finder/
 ### Prerequisites
 
 - Node.js (v14 or higher)
-- Python (v3.8 or higher)
+ - Python 3.10 or 3.11
 - pip (Python package manager)
 
 ### Installation
@@ -85,19 +71,37 @@ fashion_finder/
 3. Install backend dependencies:
    ```
    pip install -r requirements.txt
-> **Note**: All Python dependencies are listed in `requirements.txt`. The obsolete `requirements_python313.txt` file was removed.
+   ```
+   > **Note**: All Python dependencies are listed in `requirements.txt`. Python 3.13 is currently not supported; use Python 3.11 or earlier.
 
 ### Running the Application
 
-1. Start the backend server:
+The backend is implemented with **Flask**. Use Python 3.10 or 3.11.
+
+1. Install the Python dependencies:
+   ```bash
+   pip install -r requirements.txt
    ```
-   npm run server
+2. Start the Flask API server:
+   ```bash
+   python server/app.py
    ```
-2. Start the frontend development server:
-   ```
+   The API will run on [http://localhost:5001](http://localhost:5001).
+
+3. In a separate terminal, start the React development server:
+   ```bash
    npm run dev
    ```
-3. Open your browser and navigate to `http://localhost:3000`
+   This serves the frontend on [http://localhost:5173](http://localhost:5173).
+
+### Windows Notes
+
+The development scripts work the same on Windows and UNIX systems. If you prefer,
+use the Windows specific command to start Vite:
+
+```bash
+npm run dev:windows
+```
 
 ## Technical Details
 
