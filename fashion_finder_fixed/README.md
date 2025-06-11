@@ -2,7 +2,7 @@
 
 Fashion Finder is a web application that helps users discover clothing items that match their style preferences through an interactive quiz, AI-powered recommendations, and a simple chatbot assistant.
 
-The source code is written in TypeScript but compiles to JavaScript in the `dist` folder for production use.
+The application uses React for the frontend and Flask for the backend. All code is plain JavaScript and Python so no TypeScript tooling is required.
 
 ## Features
 
@@ -40,19 +40,17 @@ Users can browse through a catalog of fashion items with:
 ## Technology Stack
 
 - **Frontend**: React + Vite
-- **Backend**: Express.js server written in TypeScript
+- **Backend**: Flask API (Python)
 - **AI Model**: Custom recommendation system using embeddings
-- **Database**: Local storage with JSON files
+- **Database**: Local JSON files
 
 ## Project Structure
 
 ```
 fashion_finder/
 ├── client/      # React frontend
-├── server/      # Express API
-├── shared/      # Code shared between client and server
-├── backend/     # Static JSON data
-└── dist/        # Compiled JavaScript
+├── server/      # Flask API
+├── backend/     # Dataset and recommendation code
 ```
 
 ## Getting Started
@@ -73,11 +71,8 @@ fashion_finder/
 3. Install backend dependencies:
    ```
    pip install -r requirements.txt
-<<<<<< j72d7f-codex/rename-files.ts-to-.js
-   ```
-   > **Note**: All Python dependencies are listed in `requirements.txt`. Python 3.13 is currently not supported; use Python 3.11 or earlier.
-======
-The backend is implemented with **Flask**. Use Python 3.10 or 3.11.
+The development scripts work the same on Windows and UNIX systems. If you prefer,
+use the Windows specific command to start Vite:
 >>>>>> main
 
 1. Install the Python dependencies:
