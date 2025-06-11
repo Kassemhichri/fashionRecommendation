@@ -73,12 +73,12 @@ fashion_finder/
 3. Install backend dependencies:
    ```
    pip install -r requirements.txt
+<<<<<< j72d7f-codex/rename-files.ts-to-.js
    ```
    > **Note**: All Python dependencies are listed in `requirements.txt`. Python 3.13 is currently not supported; use Python 3.11 or earlier.
-
-### Running the Application
-
+======
 The backend is implemented with **Flask**. Use Python 3.10 or 3.11.
+>>>>>> main
 
 1. Install the Python dependencies:
    ```bash
@@ -89,12 +89,62 @@ The backend is implemented with **Flask**. Use Python 3.10 or 3.11.
    python server/app.py
    ```
    The API will run on [http://localhost:5001](http://localhost:5001).
+3. In a separate terminal, start the React development server:
+   ```bash
+   npm run dev
+   This serves the frontend on [http://localhost:5173](http://localhost:5173).
+   npm start
+   ```
+   The server listens on [http://localhost:5000](http://localhost:5000).
+
+<<<<<< j72d7f-codex/rename-files.ts-to-.js
+The backend is implemented with **Flask**. Use Python 3.10 or 3.11.
+
+1. Install the Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Start the Flask API server:
+   ```bash
+   python server/app.py
+======
+   On Windows you can use a dedicated entry point:
+   ```
+   npm run start:windows
+   ```
+======
+> **Note**: All Python dependencies are listed in `requirements.txt`. Python 3.13 is currently not supported; use Python 3.11 or earlier.
+
+### Running the Application
+
+1. Start the development server:
+>>>>>> main
+   ```
+   The API will run on [http://localhost:5001](http://localhost:5001).
 
 3. In a separate terminal, start the React development server:
    ```bash
    npm run dev
    ```
+<<<<<< j72d7f-codex/rename-files.ts-to-.js
    This serves the frontend on [http://localhost:5173](http://localhost:5173).
+======
+2. Build the server for production:
+   ```
+   npm run build:server
+   ```
+3. Run the compiled server:
+   ```
+   npm start
+   ```
+   The server listens on [http://localhost:5000](http://localhost:5000).
+
+   On Windows you can use a dedicated entry point:
+   ```
+   npm run start:windows
+   ```
+>>>>>> main
+>>>>>> main
 
 ### Windows Notes
 
